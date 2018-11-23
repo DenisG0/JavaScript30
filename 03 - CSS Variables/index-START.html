@@ -25,6 +25,21 @@
     /*
       misc styles, nothing to do with CSS variables
     */
+    :root {
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .hl{
+      color:var(--base);
+    }
 
     body {
       text-align: center;
@@ -45,6 +60,22 @@
   </style>
 
   <script>
+  console.time("items");
+  var inputs = Array.from(document.querySelectorAll('.controls input'));
+  console.timeEnd("items");
+
+
+  inputs.forEach(function(input){
+    var name = input.name;
+    var attribute = input.getAttribute('data-sizing')||"";
+    input.addEventListener('change',function(ele){
+      var value = ele.target.value;
+      var html = document.getElementsByTagName('html')[0];
+      html.style.cssText = `--${name}: ${value}${attribute}`;
+    })
+  })
+
+
   </script>
 
 </body>
