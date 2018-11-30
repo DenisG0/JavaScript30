@@ -23,4 +23,8 @@ Using CSS variables to create central points of data for large projects.
 To adjust css variable, you can setProperty of the html document style. Another syntax to use is cssText to adjust the variable. 
 
 
+Day 04. (Check)
+
+Using Console.table to display table data in a better format. 
+
 
