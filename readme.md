@@ -27,4 +27,8 @@ Day 04. (Check)
 
 Using Console.table to display table data in a better format. 
 
+Day 05. (Check)
 
+Day 06. (Check)
+
+Using variables in Regex is possible by creating a new RegExp then passing into a function like match.

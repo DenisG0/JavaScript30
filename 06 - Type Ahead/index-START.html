@@ -6,6 +6,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <style>
+    .block{
+      width: 100%;
+      background-color: white;
+      margin: 1rem;
+      text-align: center;
+    }
+  </style>
 
   <form class="search-form">
     <input type="text" class="search" placeholder="City or State">
@@ -16,6 +24,48 @@
   </form>
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+let cities = [];
+
+fetch(endpoint)
+  .then(blob => blob.json())
+  .then(data => {
+    // console.table(data)
+    cities = data;
+  });
+
+function findMatching(matchingWord, cities){
+  return cities.filter(place =>{
+    const regex = new RegExp(matchingWord,'gi');
+    return place.city.match(regex)||place.state.match(regex);
+  })
+}
+
+function showSelection(e){
+  const term = e.target.value;
+  const filtered = findMatching(term,cities);
+  // const list = document.createElement('DIV');
+  // console.table(filtered)
+  // filtered.forEach(ele =>{
+  //   const city = document.createElement('H1');
+  //   const cityName = document.createTextNode(`${ele.city}, ${ele.state}`);
+  //   city.appendChild(cityName);
+  //   list.appendChild(city);
+  // })
+  const list = filtered.map(ele => {
+    const regex = new RegExp(term,'gi');
+    console.log(ele)
+    const cityName = ele.city.replace(regex,`<span class="h1">${term}</span>`);
+    const stateName = ele.state.replace(regex,`<span class="h1">${term}</span>`);
+    return `<div class="block"><h1 class="title">${cityName}, ${stateName}</h1></div>`
+  })
+  document.querySelector('.search-form').insertAdjacentHTML("afterend",list)
+}
+
+document.querySelector('.search').addEventListener('change',showSelection);
+
+
+
 
 </script>
   </body>
