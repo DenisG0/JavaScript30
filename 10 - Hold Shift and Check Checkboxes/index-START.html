@@ -96,6 +96,35 @@
   </div>
 
 <script>
+  const checkBoxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+  let shift;
+  let prior = false;
+  console.log(checkBoxes);
+  window.addEventListener('keydown',focused);
+  window.addEventListener('keyup',focused);
+  checkBoxes.forEach((ele,ind)=>{
+    ele.addEventListener('click',function(){
+      if(shift){
+        checkBoxes.forEach((ele,index)=>{
+          if(ele.checked&&index<ind){
+            prior = true;
+          }
+          if(prior&&index<ind){
+            ele.checked= true;
+          }
+        })
+      }
+    })
+  });
+
+  function focused(e){
+    if(e.key==="Shift"){
+      shift = true;
+    }else{
+      shift = false;
+    }
+  }
+
 </script>
 </body>
 </html>
