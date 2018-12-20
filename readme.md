@@ -32,3 +32,30 @@ Day 05. (Check)
 Day 06. (Check)
 
 Using variables in Regex is possible by creating a new RegExp then passing into a function like match.
+
+Day 07. (Check)
+
+Learned about .find that returns the first matching element. 
+              .some that returns a boolean if atleast one matchs
+              .every that returns a boolearn if all matches
+ 
+Day 08 (Check)
+
+Canvas Fun. Novelty
+
+Day 09 (Check)
+
+Console.group with groupEnd for grouped messaging. 
+
+Day 10 (Check)
+
+Breaking down the problem a step at a time. 
+
+Day 11 (Check)
+
+Video Fun. Novelty
+
+Day 12 (Check)
+
+.slice returns a new object while not affecting the original array. .splice modifies the original array.
+
