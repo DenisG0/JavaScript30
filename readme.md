@@ -59,3 +59,9 @@ Day 12 (Check)
 
 .slice returns a new object while not affecting the original array. .splice modifies the original array.
 
+Day 13 (Check)
+
+Day 14 (Check)
+
+Understanding pass by value vs pass by reference. Strings and numbers will always be assigning value while arrays and objects will 
+be a reference unless a clone is made. 
